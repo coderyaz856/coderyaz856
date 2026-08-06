@@ -6,7 +6,7 @@ I enjoy turning technical ideas into practical, efficient tools, from machine-le
 
 ### Current project
 
-[SnapTask](https://snaptask.org/)** - A lightweight Android notes and tasks app that lives in your notification bar. No account, no ads, and under 4 MB. Available as a free APK on [Gumroad](https://ftgygh.gumroad.com/l/snaptask-pro) and [APKPure](https://apkpure.com/p/com.snaptask.app).
+[SnapTask](https://snaptask.org/) - A lightweight Android notes and tasks app that lives in your notification bar. No account, no ads, and under 4 MB. Available as a free APK on [Gumroad](https://ftgygh.gumroad.com/l/snaptask-pro) and [APKPure](https://apkpure.com/p/com.snaptask.app).
 
 ### Areas of interest
 
