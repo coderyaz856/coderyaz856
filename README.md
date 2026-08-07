@@ -1,8 +1,8 @@
 ## Hi, I'm Yaz 👋
 
-I'm an AI and software engineer from Morocco. Most of my work sits where machine learning meets applied mathematics: building models that are actually evaluated rather than just trained, and making them run efficiently once they work.
+I'm an AI and software engineer from Morocco. I work mostly on machine learning and applied maths, and I spend a fair amount of time getting models to run on the hardware I actually have rather than the hardware I'd like.
 
-I care about the parts people usually skip — whether a metric measures what it claims to, whether a result survives a change in preprocessing, and whether the thing runs on the hardware you actually have.
+The part I enjoy most is the checking: does this metric measure what it claims to, and does the result hold up when I change the preprocessing?
 
 ### Areas of interest
 
@@ -10,16 +10,17 @@ Machine Learning · Reinforcement Learning · Computer Vision · Natural Languag
 
 ### Projects
 
-- **[Adversarial Testing of MedGemma](https://github.com/coderyaz856/Adversarial-Testing-of-MedGemma)** — An evaluation harness that stress-tests a medical model against automatically generated adversarial prompt prefixes, running a three-model pipeline in a single GPU session through 4-bit quantisation.
-- **[Topic Modeling: LDA vs NMF](https://github.com/coderyaz856/Topic-Modeling-Comparing-Optimum-Aided-LDA-and-Non-negative-Matrix-Factorization)** — Compares two topic models on the same corpus, choosing the topic count by coherence and treating preprocessing as an experimental variable rather than a fixed prelude.
-- **[NLP for Job Recommendation](https://github.com/coderyaz856/NLP-for-Job-Recommendation-Data-Engineering-Case-)** — A CV-to-job matching engine over ~210,000 postings that combines lexical, topical and dense-embedding signals into a ranking you can decompose and argue with.
-- **[Bandit-Optimised Diabetes Classifier](https://github.com/coderyaz856/Epsilon-Bandit-Aided-Diabetes-MLP-Prediction)** — A neural classifier whose decision threshold is tuned by a multi-armed bandit, reported honestly as a precision/recall trade-off rather than an accuracy win.
-- **[Image Denoising](https://github.com/coderyaz856/Image-denoising---Python)** — A greedy search over classical filters, scored against a clean reference with PSNR and SSIM so the results mean something.
-- **[Distributed Smart City Platform](https://github.com/coderyaz856/distributed-smart-city-platform)** — A Java system exposing the same city-resource services over REST, remote objects, raw sockets and WebSocket, backed by an embedded database and a live dashboard.
+- **[Adversarial Testing of MedGemma](https://github.com/coderyaz856/Adversarial-Testing-of-MedGemma)**, stress-tests a medical model with adversarial prompt prefixes written by a second model, while a third scores the answers. All three fit in one GPU session thanks to 4-bit quantisation.
+- **[Topic Modeling: LDA vs NMF](https://github.com/coderyaz856/Topic-Modeling-Comparing-Optimum-Aided-LDA-and-Non-negative-Matrix-Factorization)**, runs both models on the same corpus and compares them. The topic count comes from a coherence sweep, and I tried five preprocessing variants first to see which words survive all of them.
+- **[NLP for Job Recommendation](https://github.com/coderyaz856/NLP-for-Job-Recommendation-Data-Engineering-Case-)**, matches a CV against roughly 210,000 job postings using keyword, topic and embedding scores. Every result comes with the reasons behind it and the gaps it found.
+- **[Bandit-Optimised Diabetes Classifier](https://github.com/coderyaz856/Epsilon-Bandit-Aided-Diabetes-MLP-Prediction)**, an MLP whose decision threshold is picked by a multi-armed bandit. Accuracy barely moves, but recall gains about 4 points, which is the trade you want for screening.
+- **[Image Denoising](https://github.com/coderyaz856/Image-denoising---Python)**, searches over classical filters and keeps whichever one best restores a noisy image, measured with PSNR and SSIM against the clean original. Bilateral wins on Gaussian noise, median on salt-and-pepper.
+- **[Distributed Smart City Platform](https://github.com/coderyaz856/distributed-smart-city-platform)**, a Java system where the same services are reachable over REST, RMI, raw sockets and WebSocket, with an embedded database behind them and a live dashboard on top.
 
 ### Publication
 
-**A Modular DevSecOps Framework for Vulnerability Detection, Risk Scoring, and LLM-Augmented Remediation in CI/CD Environments** — S. Sadki, A. Lamgari, E. Y. Tebbaa. CloudTech'25, Lecture Notes in Networks and Systems 1941, pp. 213–227, Springer, 2026. [doi:10.1007/978-3-032-23844-3_23](https://doi.org/10.1007/978-3-032-23844-3_23)
+**A Modular DevSecOps Framework for Vulnerability Detection, Risk Scoring, and LLM-Augmented Remediation in CI/CD Environments**
+S. Sadki, A. Lamgari, E. Y. Tebbaa. CloudTech'25, Lecture Notes in Networks and Systems 1941, pp. 213–227, Springer, 2026. [doi:10.1007/978-3-032-23844-3_23](https://doi.org/10.1007/978-3-032-23844-3_23)
 
 ### Technologies
 
