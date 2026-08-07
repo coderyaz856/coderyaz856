@@ -6,7 +6,7 @@ The part I enjoy most is the checking: does this metric measure what it claims t
 
 ### Areas of interest
 
-Machine Learning · Reinforcement Learning · Computer Vision · Natural Language Processing · Applied Mathematics · Efficient Inference
+Machine Learning · Reinforcement Learning · Computer Vision · Natural Language Processing · Applied Mathematics · Efficient Software
 
 ### Projects
 
