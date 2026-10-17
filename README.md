@@ -2,7 +2,7 @@
 
 **AI & Software Engineer** — Morocco
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=760&height=46&lines=Machine+learning+%C2%B7+applied+mathematics+%C2%B7+distributed+systems;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.05+dB+recovered+from+a+noisy+input" alt="Machine learning, applied mathematics, distributed systems" />
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=760&height=46&lines=Applied+mathematics+%C2%B7+efficient+software+%C2%B7+machine+learning;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.05+dB+recovered+from+a+noisy+input" alt="Machine learning, applied mathematics, distributed systems" />
 
 ![Python](https://img.shields.io/badge/python-%233670A0.svg?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
