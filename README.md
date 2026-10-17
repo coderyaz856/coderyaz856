@@ -42,8 +42,14 @@ them, and Gemma-2-2B-IT scores each answer as strict JSON on a 0–10 scale. An 
 hill-climbing loop keeps the top-K prefixes as elites and mutates them, stopping early once a
 candidate crosses threshold.
 
-Three models at two precisions fit in a single Tesla T4 session, and the target is queried with
-greedy decoding so any run reproduces exactly.
+Roughly 13B parameters across three models share one Tesla T4, and most of the engineering is in
+making that hold. The runtime's preinstalled PyTorch is removed and rebuilt against the CUDA 12.1
+wheel index with the pip cache purged between steps, so the resolver cannot reuse the incompatible
+wheels it already had. The compatibility boundary was then isolated to a single package and pinned
+as `numpy<2.0` rather than freezing the environment to an old snapshot — reproducible without
+surrendering unrelated upgrades. Two runtime faults were traced to source rather than worked
+around: TorchDynamo's compilation path is disabled before any import, and the target runs greedy
+decoding, which also makes every run reproducible.
 
 ### [LDA vs NMF under a controlled preprocessing sweep](https://github.com/coderyaz856/Topic-Modeling-Comparing-Optimum-Aided-LDA-and-Non-negative-Matrix-Factorization)
 
