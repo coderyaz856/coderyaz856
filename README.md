@@ -7,7 +7,7 @@ Building reliable ML systems, evaluation pipelines, distributed applications, an
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0008--5499--8589-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0008-5499-8589)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-El_Yazid_Tebbaa-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/el-yazid-tebbaa-71a27434a/)
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=22&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=760&height=46&lines=Applied+mathematics+%C2%B7+efficient+software+%C2%B7+machine+learning;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.05+dB+recovered+from+a+noisy+input" alt="Machine learning, applied mathematics, distributed systems" />
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=900&height=48&lines=Applied+mathematics+%C2%B7+efficient+software+%C2%B7+machine+learning;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.05+dB+recovered+from+a+noisy+input" alt="Applied mathematics, efficient software, machine learning" />
 
 ![Python](https://img.shields.io/badge/python-%233670A0.svg?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
