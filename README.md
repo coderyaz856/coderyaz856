@@ -7,7 +7,7 @@ Building reliable ML systems, evaluation pipelines, distributed applications, an
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0008--5499--8589-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0008-5499-8589)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-El_Yazid_Tebbaa-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/el-yazid-tebbaa-71a27434a/)
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=900&height=48&lines=GPU+engineering+%C2%B7+~13B+parameters+%C2%B7+one+Tesla+T4;35%25+less+simulation+compute+%C2%B7+built+scientific+SDK;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.05+dB+recovered+from+a+noisy+input" alt="GPU engineering: roughly 13B parameters on one Tesla T4; research engineering: 35% less simulation compute and a scientific SDK" />
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=900&height=48&lines=GPU+engineering+%C2%B7+~13B+parameters+%C2%B7+one+Tesla+T4;35%25+less+simulation+compute+%C2%B7+built+scientific+SDK;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.95+dB+from+seeded+impulse+noise" alt="GPU engineering: roughly 13B parameters on one Tesla T4; research engineering: 35% less simulation compute and a scientific SDK; image denoising: 16.95 dB PSNR gain on seeded impulse noise" />
 
 ![Python](https://img.shields.io/badge/python-%233670A0.svg?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
@@ -108,13 +108,14 @@ at flat accuracy.
 ### [Filter search for image denoising](https://github.com/coderyaz856/Image-denoising---Python)
 
 A greedy search over classical OpenCV filters, scored on PSNR, SSIM and MSE against a clean
-reference, chaining a filter only when it improves the score. On Gaussian noise ($\sigma = 25$) it
-chains **bilateral filtering** $\times 4$ to reach **36.65 dB / SSIM 0.985**, a gain of **+16.05 dB** over the
-noisy input. On 8% salt-and-pepper it switches to the **median filter** (31.20 dB / SSIM 0.9835),
-where bilateral filtering is among the worst performers.
+reference, chaining a filter only when it improves the score. On seeded Gaussian noise
+($\sigma = 25$), **bilateral filtering** $\times 3$ reaches **35.53 dB / SSIM 0.9570**, a gain of
+**+15.10 dB**. On 8% salt-and-pepper noise, **median filtering** $\times 2$ reaches
+**33.15 dB / SSIM 0.9866**, a gain of **+16.95 dB**.
 
-The ranking inverts exactly as the theory predicts, and the search finds it without being told
-the noise type.
+The ranking inverts with the corruption model, and the search finds it without receiving a
+noise-specific filter rule. The committed generator retains the seeds, exact metrics, baselines,
+selected chains, and library versions.
 
 ### [Distributed smart city platform](https://github.com/coderyaz856/distributed-smart-city-platform)
 
