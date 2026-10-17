@@ -34,9 +34,9 @@ demo, and reports the number that settles it.
 
 An autonomous scientific-discovery laboratory, built for the [Hack-Nation 7th Global AI Hackathon](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains). I designed three of its layers.
 
-**The evidence runtime.** A result is only worth as much as a stranger's ability to reconstruct it, so I built the lab's findings on an append-only research ledger over content-addressed bundles, reached through contract-checked RPC from typed Python, Rust and Julia SDKs, with checkpoint and resume for long runs. Corruption checks fail closed — a damaged bundle halts the run rather than quietly degrading it — and any recorded finding reproduces byte for byte.
+**The evidence runtime.** A result is only worth as much as a stranger's ability to reconstruct it, so I built the lab's findings on an append-only research ledger over content-addressed bundles, reached through contract-checked RPC from typed Python, Rust and Julia SDKs, with checkpoint and resume for long runs. Corruption checks fail closed: a damaged bundle halts the run rather than quietly degrading it, and any recorded finding reproduces byte for byte.
 
-**Decision economics.** Compute is the lab's scarce resource, so I designed the planner to buy information rather than samples: expected-information-gain planning under an explicit budget, redundancy-aware portfolios across competing hypotheses, downside-risk analysis, and selective escalation from 6 to 12 to 24 seeds that continues only while a preregistered verdict stays inconclusive. Across five replicates and seven hypotheses this saved a mean of **35.15%** of simulation compute against always running the full-size design (efficiency ratio **1.54x**, 95% bootstrap CI **[1.28, 1.90]**), while agreeing with a 48-seed reference on 28 of 35 decisions — the full-size design it replaced agreed on 29 of 35.
+**Decision economics.** Compute is the lab's scarce resource, so I designed the planner to buy information rather than samples: expected-information-gain planning under an explicit budget, redundancy-aware portfolios across competing hypotheses, downside-risk analysis, and selective escalation from 6 to 12 to 24 seeds that continues only while a preregistered verdict stays inconclusive. Across five replicates and seven hypotheses this saved a mean of **35.15%** of simulation compute against always running the full-size design (efficiency ratio **1.54x**, 95% bootstrap CI **[1.28, 1.90]**), while agreeing with a 48-seed reference on 28 of 35 decisions, where the full-size design it replaced agreed on 29 of 35.
 
 **The statistical layer.** I chose methods that survive clustering and multiplicity rather than ones that flatter a result: paired and stratified cluster bootstraps, AUROC and Brier analysis, Wilson intervals, exact McNemar tests, Hodges–Lehmann estimates, Wilcoxon tests with Holm correction, and CVaR, measured over dynamic evolutionary-search benchmarks with entropy telemetry.
 
@@ -51,41 +51,41 @@ An autonomous scientific-discovery laboratory, built for the [Hack-Nation 7th Gl
 ### [Adversarial testing of a medical LLM](https://github.com/coderyaz856/Adversarial-Testing-of-MedGemma)
 
 A three-model loop that searches for prompt prefixes which degrade a medical model's answers.
-Mistral-7B-Instruct (4-bit NF4) generates candidate prefixes, MedGemma-4B-IT answers under
-them, and Gemma-2-2B-IT scores each answer as strict JSON on a 0–10 scale. An evolutionary
-hill-climbing loop keeps the top-K prefixes as elites and mutates them, stopping early once a
+**Mistral-7B-Instruct** (4-bit NF4) generates candidate prefixes, **MedGemma-4B-IT** answers under
+them, and **Gemma-2-2B-IT** scores each answer as strict JSON on a 0–10 scale. An **evolutionary
+hill-climbing** loop keeps the top-K prefixes as elites and mutates them, stopping early once a
 candidate crosses threshold.
 
-Roughly 13B parameters across three models share one Tesla T4, and most of the engineering is in
+Roughly **13B parameters** across three models share **one Tesla T4**, and most of the engineering is in
 making that hold. The runtime's preinstalled PyTorch is removed and rebuilt against the CUDA 12.1
 wheel index with the pip cache purged between steps, so the resolver cannot reuse the incompatible
 wheels it already had. The compatibility boundary was then isolated to a single package and pinned
-as `numpy<2.0` rather than freezing the environment to an old snapshot — reproducible without
-surrendering unrelated upgrades. Two runtime faults were traced to source rather than worked
+as **`numpy<2.0`** rather than freezing the environment to an old snapshot, which keeps it
+reproducible without surrendering unrelated upgrades. Two runtime faults were traced to source rather than worked
 around: TorchDynamo's compilation path is disabled before any import, and the target runs greedy
 decoding, which also makes every run reproducible.
 
 ### [LDA vs NMF under a controlled preprocessing sweep](https://github.com/coderyaz856/Topic-Modeling-Comparing-Optimum-Aided-LDA-and-Non-negative-Matrix-Factorization)
 
-8,000 AG News articles, with the topic count chosen by a C_v coherence sweep over
-k ∈ {2,4,6,8,10,12} rather than assumed — k = 6 at coherence 0.5327. Five preprocessing variants
+8,000 AG News articles, with the topic count chosen by a **$C_v$ coherence sweep** over
+$k \in \{2, 4, 6, 8, 10, 12\}$ rather than assumed: **$k = 6$ at coherence $0.5327$**. Five preprocessing variants
 were scored on vocabulary retention and TF-IDF entropy, with KMeans silhouette as a check;
 53 words held stable across three or more variants.
 
 The finding worth reporting is the disagreement: the two models assign only **27.7%** of
 documents to corresponding topics. LDA partitions evenly (normalised entropy 0.991, Gini 0.101)
-while NMF concentrates 53.1% of documents in one topic yet yields the more nameable themes.
-They are complementary, not interchangeable — the opposite of how the two are usually
+while NMF concentrates **53.1%** of documents in one topic yet yields the more nameable themes.
+They are **complementary, not interchangeable**, which is the opposite of how the two are usually
 substituted for one another.
 
 ### [Explainable CV-to-job matching over 209,924 postings](https://github.com/coderyaz856/NLP-for-Job-Recommendation-Data-Engineering-Case-)
 
-Nine weighted signals — must-have skill coverage, MiniLM sentence embeddings, TF-IDF, LDA topic
+**Nine weighted signals** (must-have skill coverage, MiniLM sentence embeddings, TF-IDF, LDA topic
 similarity, seniority and years, CEFR language gating, certifications, soft skills, and salary
-and work-mode constraints — renormalised to one and reported per signal, so every ranking
+and work-mode constraints) are renormalised to one and reported per signal, so every ranking
 arrives with its matched skills and its gaps.
 
-Semantic similarity is capped rather than summed: below 25% required-skill coverage the score
+Semantic similarity is **capped rather than summed**: below 25% required-skill coverage the score
 cannot exceed 0.35, and below 50% it cannot exceed 0.55, so no amount of embedding similarity
 rescues a candidate missing the essentials. Embedding and TF-IDF artifacts are cached on row
 count, columns and file mtime; the Streamlit layer caches on a SHA-256 of the CV text plus the
@@ -94,13 +94,13 @@ weight vector.
 ### [Bandit-selected operating point for a diabetes screen](https://github.com/coderyaz856/Epsilon-Bandit-Aided-Diabetes-MLP-Prediction)
 
 70,692 BRFSS records, reduced to 11 predictors by correlation filtering, classified by a
-deliberately small MLP — 105 parameters, trained on CPU. Ten decision thresholds act as bandit
-arms with Beta posteriors updated from validation accuracy; Thompson sampling with a randomised
-near-greedy tie-break selected 0.456. The test set was touched once.
+deliberately small MLP of **105 parameters**, trained on CPU. Ten decision thresholds act as bandit
+arms with Beta posteriors updated from validation accuracy; **Thompson sampling** with a randomised
+near-greedy tie-break selected **0.456**. The test set was touched **once**.
 
 | vs. default threshold 0.5 | Recall | Precision | Accuracy |
 | --- | --- | --- | --- |
-| Δ at 0.456 | **+4.07 pp** | −1.57 pp | −0.14 pp |
+| $\Delta$ at 0.456 | **+4.07 pp** | −1.57 pp | −0.14 pp |
 
 For a screening task that trade is the point: 1.6 points of precision buys 4.1 points of recall
 at flat accuracy.
@@ -108,9 +108,9 @@ at flat accuracy.
 ### [Filter search for image denoising](https://github.com/coderyaz856/Image-denoising---Python)
 
 A greedy search over classical OpenCV filters, scored on PSNR, SSIM and MSE against a clean
-reference, chaining a filter only when it improves the score. On Gaussian noise (σ = 25) it
-chains bilateral filtering ×4 to reach **36.65 dB / SSIM 0.985**, a gain of +16.05 dB over the
-noisy input. On 8% salt-and-pepper it switches to the median filter (31.20 dB / SSIM 0.9835),
+reference, chaining a filter only when it improves the score. On Gaussian noise ($\sigma = 25$) it
+chains **bilateral filtering** $\times 4$ to reach **36.65 dB / SSIM 0.985**, a gain of **+16.05 dB** over the
+noisy input. On 8% salt-and-pepper it switches to the **median filter** (31.20 dB / SSIM 0.9835),
 where bilateral filtering is among the worst performers.
 
 The ranking inverts exactly as the theory predicts, and the search finds it without being told
@@ -120,10 +120,10 @@ the noise type.
 
 Java 11. Simulated sensor readings flow through Kafka into four domain services that persist to
 embedded H2, evaluate thresholds, raise alerts and push live updates to a browser dashboard.
-Five communication mechanisms coexist in one application — Kafka, Java RMI, raw TCP sockets
+**Five communication mechanisms** coexist in one application: Kafka, Java RMI, raw TCP sockets
 behind a ten-thread pool, JAX-RS REST on Grizzly, and WebSocket.
 
-The details that matter under load: an idempotent producer with `acks=all`, auto-commit disabled
+The details that matter under load: an **idempotent producer** with `acks=all`, auto-commit disabled
 with an explicit `commitSync()` after each batch, and read endpoints that hash their payload to
 return `304 Not Modified` when nothing has changed.
 
