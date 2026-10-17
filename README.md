@@ -32,25 +32,17 @@ demo, and reports the number that settles it.
 
 ## Featured collaboration: Noesis / EigenBrains
 
-For the [Hack-Nation 7th Global AI Hackathon](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains), I contributed [58 commits](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains/commits?author=coderyaz856) to an autonomous scientific-discovery laboratory. My work covered three connected layers:
+An autonomous scientific-discovery laboratory, built for the [Hack-Nation 7th Global AI Hackathon](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains). I designed three of its layers.
 
-- **Research systems:** a reproducible evidence runtime, append-only research ledger, typed Python/Rust/Julia SDKs, contract-checked RPC, checkpoint/resume, content-addressed bundles, byte-for-byte reproduction, and fail-closed corruption checks.
-- **Decision economics:** expected-information-gain experiment planning under compute budgets, redundancy-aware research portfolios, downside-risk analysis, and selective escalation from 6 to 12 to 24 seeds only while a preregistered verdict remained inconclusive.
-- **Applied mathematics:** dynamic evolutionary-search benchmarks, entropy telemetry, paired and stratified cluster bootstraps, AUROC and Brier analysis, Wilson intervals, exact McNemar tests, Hodges-Lehmann estimates, Wilcoxon tests with Holm correction, and CVaR.
+**The evidence runtime.** A result is only worth as much as a stranger's ability to reconstruct it, so I built the lab's findings on an append-only research ledger over content-addressed bundles, reached through contract-checked RPC from typed Python, Rust and Julia SDKs, with checkpoint and resume for long runs. Corruption checks fail closed — a damaged bundle halts the run rather than quietly degrading it — and any recorded finding reproduces byte for byte.
 
-The recorded selective-escalation study cut compute by **35%** (efficiency ratio **1.54x**, 95% bootstrap CI **[1.28, 1.90]**) while agreeing with a 48-seed reference on 28/35 decisions, versus 29/35 for the full-size design. I also froze and executed a sealed cross-language study in which a promising development result (Delta AUROC **+0.1393**) disappeared on untouched landscapes (Delta AUROC **-0.0059**). I published the negative result, its limitations, the protocol hash, and the independently verifiable evidence bundle.
+**Decision economics.** Compute is the lab's scarce resource, so I designed the planner to buy information rather than samples: expected-information-gain planning under an explicit budget, redundancy-aware portfolios across competing hypotheses, downside-risk analysis, and selective escalation from 6 to 12 to 24 seeds that continues only while a preregistered verdict stays inconclusive. Across five replicates and seven hypotheses this saved a mean of **35.15%** of simulation compute against always running the full-size design (efficiency ratio **1.54x**, 95% bootstrap CI **[1.28, 1.90]**), while agreeing with a 48-seed reference on 28 of 35 decisions — the full-size design it replaced agreed on 29 of 35.
+
+**The statistical layer.** I chose methods that survive clustering and multiplicity rather than ones that flatter a result: paired and stratified cluster bootstraps, AUROC and Brier analysis, Wilson intervals, exact McNemar tests, Hodges–Lehmann estimates, Wilcoxon tests with Holm correction, and CVaR, measured over dynamic evolutionary-search benchmarks with entropy telemetry.
+
+**The design decision I would defend first** is sealing a cross-language study before running it. A promising development signal (ΔAUROC **+0.1393**) disappeared on untouched landscapes (**−0.0059**). I published the null result with its protocol hash and an independently verifiable evidence bundle instead of reporting the development number.
 
 [Acceleration study](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains/tree/main/discolab/results/escalation) | [Sealed result](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains/blob/main/docs/SEALED_ENTROPY_EARLY_WARNING_RESULT.md) | [Cross-language SDK](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains/tree/main/sdk)
-
-## Mantis work
-
-I contribute focused, independently tested fixes to [KellisLab's Mantis CLI](https://github.com/KellisLab/mantis-cli):
-
-- **[PR #12](https://github.com/KellisLab/mantis-cli/pull/12)** centralizes package-version loading and tests the MCP handshake version.
-- **[PR #19](https://github.com/KellisLab/mantis-cli/pull/19)** preserves the actual HTTP status when an API returns an HTML 5xx response.
-- **[PR #21](https://github.com/KellisLab/mantis-cli/pull/21)** converts `mantis select` API failures into one handled CLI error instead of an uncaught Node.js stack trace.
-
-I also built a Theory-to-Machine vertical in Mantis: a bounded C++20 floating-point experiment with scoped reassociation profiles, seeded interleaved timing, CPU-affinity and host-load records, retained raw samples, disassembly checks, and a UI panel generated from the exact notebook result.
 
 ---
 
