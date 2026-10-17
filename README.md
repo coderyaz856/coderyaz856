@@ -125,18 +125,20 @@ The ranking inverts with the corruption model, and the search finds it without r
 noise-specific filter rule. The committed generator retains the seeds, exact metrics, baselines,
 selected chains, and library versions.
 
-### [Distributed smart city systems prototype](https://github.com/coderyaz856/distributed-smart-city-platform)
+### [Production-ready smart-city systems foundation](https://github.com/coderyaz856/distributed-smart-city-platform)
 
-An academic Java 11 prototype exploring middleware integration in a simulated smart city. Sensor readings flow through Kafka into four domain services that persist to
-embedded H2, evaluate thresholds, raise alerts and push live updates to a browser dashboard.
-**Five communication mechanisms** coexist in one application: Kafka, Java RMI, raw TCP sockets
-behind a ten-thread pool, JAX-RS REST on Grizzly, and WebSocket.
+[![Production pipeline](https://github.com/coderyaz856/distributed-smart-city-platform/actions/workflows/production.yml/badge.svg?branch=main)](https://github.com/coderyaz856/distributed-smart-city-platform/actions/workflows/production.yml)
+[![Public GHCR image](https://img.shields.io/badge/GHCR-public-2496ED?logo=docker&logoColor=white)](https://github.com/coderyaz856/distributed-smart-city-platform/pkgs/container/distributed-smart-city-platform)
 
-The details that matter under load: an **idempotent producer** with `acks=all`, auto-commit disabled
-with an explicit `commitSync()` after each batch, and read endpoints that hash their payload to
-return `304 Not Modified` when nothing has changed.
+Evolved an academic middleware prototype into a reproducible **Java 17 deployment baseline**. The system preserves five independently configurable communication paths—Kafka 3.7.1 in KRaft mode, Java RMI, concurrent raw TCP, JAX-RS REST, and Tyrus WebSocket—while adding PostgreSQL 16, HikariCP connection pooling, Flyway migrations, and environment-driven runtime configuration.
 
-The repository demonstrates these mechanisms locally; it does not claim production scale, high availability, security hardening, automated test coverage, or managed deployment.
+The delivery boundary includes a **multi-stage, non-root Docker image**, liveness and database-backed readiness probes, structured JSON logs, graceful shutdown, Docker Compose orchestration, and an integration test spanning ingestion, persistence, threshold evaluation, and alert creation. GitHub Actions verifies Maven changes and publishes public GHCR images with immutable SHA tags, build provenance, and an SBOM; third-party actions are pinned to immutable commits.
+
+`docker pull ghcr.io/coderyaz856/distributed-smart-city-platform:latest`
+
+[Production PR](https://github.com/coderyaz856/distributed-smart-city-platform/pull/1) · [Public container](https://github.com/coderyaz856/distributed-smart-city-platform/pkgs/container/distributed-smart-city-platform)
+
+This is a deployment-ready foundation for the prototype. Authentication, TLS termination, managed secrets, load testing, disaster recovery, and provider-specific hosting remain explicit follow-up work.
 
 ---
 
