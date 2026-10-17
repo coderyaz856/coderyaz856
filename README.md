@@ -46,6 +46,14 @@ An autonomous scientific-discovery laboratory, built for the [Hack-Nation 7th Gl
 
 ---
 
+## Additional team contributions
+
+- **[RealDoor application-readiness copilot](https://github.com/Ismailea4/eigenbrains-realdoor-agent/commits/main/?author=coderyaz856):** seven commits on `main` covering deterministic housing-rule evaluation, transparent financial-readiness risk metrics, synthetic end-to-end pipeline exports, aggregate journey APIs, regression tests, documentation, and deployed endpoint compatibility.
+- **[AI-scientist retrieval and orchestration](https://github.com/Abderrahmane-dotcom/mit_hackathon_ai_scientist_sujet/commit/e8717bfe059e881e764260cc470fb6a9e37fcb4c):** built the retrieval path across query classification, source profiles, Tavily integration, catalog validation, orchestration, Markdown export, server integration, and smoke tests.
+- **[Multilingual speech pipeline](https://github.com/Ismailea4/EigenBrains-HackAI-2026/commits/main/?author=coderyaz856):** contributed Arabic speech-to-text and French translation support, then integrated the transcript path into the reporting and Streamlit application flow.
+
+---
+
 ## Selected work
 
 ### [Adversarial testing of a medical LLM](https://github.com/coderyaz856/Adversarial-Testing-of-MedGemma)
@@ -117,9 +125,9 @@ The ranking inverts with the corruption model, and the search finds it without r
 noise-specific filter rule. The committed generator retains the seeds, exact metrics, baselines,
 selected chains, and library versions.
 
-### [Distributed smart city platform](https://github.com/coderyaz856/distributed-smart-city-platform)
+### [Distributed smart city systems prototype](https://github.com/coderyaz856/distributed-smart-city-platform)
 
-Java 11. Simulated sensor readings flow through Kafka into four domain services that persist to
+An academic Java 11 prototype exploring middleware integration in a simulated smart city. Sensor readings flow through Kafka into four domain services that persist to
 embedded H2, evaluate thresholds, raise alerts and push live updates to a browser dashboard.
 **Five communication mechanisms** coexist in one application: Kafka, Java RMI, raw TCP sockets
 behind a ten-thread pool, JAX-RS REST on Grizzly, and WebSocket.
@@ -127,6 +135,8 @@ behind a ten-thread pool, JAX-RS REST on Grizzly, and WebSocket.
 The details that matter under load: an **idempotent producer** with `acks=all`, auto-commit disabled
 with an explicit `commitSync()` after each batch, and read endpoints that hash their payload to
 return `304 Not Modified` when nothing has changed.
+
+The repository demonstrates these mechanisms locally; it does not claim production scale, high availability, security hardening, automated test coverage, or managed deployment.
 
 ---
 
