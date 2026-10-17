@@ -2,16 +2,17 @@
 
 ### Data & AI Engineer
 
-Building reliable ML systems, evaluation pipelines, distributed applications, and developer tooling.
+Building reliable ML systems, native inference runtimes, evaluation pipelines, distributed applications, and developer tooling.
 
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0008--5499--8589-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0008-5499-8589)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-El_Yazid_Tebbaa-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/el-yazid-tebbaa-71a27434a/)
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=900&height=48&lines=GPU+engineering+%C2%B7+~13B+parameters+%C2%B7+one+Tesla+T4;35%25+less+simulation+compute+%C2%B7+built+scientific+SDK;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.95+dB+from+seeded+impulse+noise" alt="GPU engineering: roughly 13B parameters on one Tesla T4; research engineering: 35% less simulation compute and a scientific SDK; image denoising: 16.95 dB PSNR gain on seeded impulse noise" />
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=900&height=48&lines=GPU+engineering+%C2%B7+~13B+parameters+%C2%B7+one+Tesla+T4;35%25+less+simulation+compute+%C2%B7+built+scientific+SDK;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.95+dB+from+seeded+impulse+noise;C%2B%2B%2FMATLAB+MEX+%C2%B7+7.70x+speedup+%C2%B7+4.55e-13+max+error" alt="GPU engineering: roughly 13B parameters on one Tesla T4; research engineering: 35% less simulation compute and a scientific SDK; image denoising: 16.95 dB PSNR gain on seeded impulse noise; C++ and MATLAB MEX inference: 7.70x speedup with 4.55e-13 maximum error" />
 
 ![Python](https://img.shields.io/badge/python-%233670A0.svg?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
 ![C++](https://img.shields.io/badge/c%2B%2B-%2300599C.svg?style=for-the-badge&logo=cplusplus&logoColor=white)
+![MATLAB](https://img.shields.io/badge/MATLAB-e16737?style=for-the-badge&logoColor=white)
 ![C#](https://img.shields.io/badge/C%23-%23239120.svg?style=for-the-badge&logo=dotnet&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-%234479A1.svg?style=for-the-badge&logo=postgresql&logoColor=white)
@@ -47,6 +48,16 @@ An autonomous scientific-discovery laboratory, built for the [Hack-Nation 7th Gl
 ---
 
 ## Additional team contributions
+
+### [C++/MEX real-time surrogate inference](https://github.com/Ismailea4/ITX-H2SO4-Digital-Twin/commit/1264b4013e1835599be188b9f78244187e45e341)
+
+Implemented a deterministic native inference runtime for the Aspen F05 surrogate in the H2SO4 digital twin. The MEX boundary exposes the MATLAB-trained MLP and adaptive bias correction to Simulink through a canonical six-input, six-output contract covering stream flow, temperature, pressure, and gas composition. The core uses fixed-size `std::array` storage, performs no dynamic allocation on the inference path, rejects nonfinite or malformed inputs, and confines `mxArray` allocation to the MEX boundary.
+
+The parameters are not copied manually. `weights.h` is generated from `aspen_surrogate_predict.m` and audited for exact double-value agreement, making the MATLAB-to-C++ transfer reproducible. Validation covered the full 300-row dataset, a 300-step stateful rollout, 600 randomized stress cases, 5,000 exact repeat calls, and 16 invalid-boundary calls. All software-only checks passed with a **4.55e-13 maximum error** against the preregistered `1e-8` tolerance.
+
+On 50,031 live timestamp benchmark calls, the MEX path measured **15.14 microseconds per call** versus **116.64 microseconds per call** for MATLAB, a **7.70x speedup**, while preserving a **2.27e-13 maximum agreement error**.
+
+[Submitted commit](https://github.com/Ismailea4/ITX-H2SO4-Digital-Twin/commit/1264b4013e1835599be188b9f78244187e45e341) · [C++ source](https://github.com/Ismailea4/ITX-H2SO4-Digital-Twin/tree/1264b4013e1835599be188b9f78244187e45e341/matlab_surrogate/src/cpp) · [Interface contract](https://github.com/Ismailea4/ITX-H2SO4-Digital-Twin/blob/1264b4013e1835599be188b9f78244187e45e341/matlab_surrogate/docs/pfe_surrogate_interface.md) · [Verification report](https://github.com/Ismailea4/ITX-H2SO4-Digital-Twin/blob/1264b4013e1835599be188b9f78244187e45e341/matlab_surrogate/docs/pfe_cpp_mex_verification_report.md)
 
 - **[RealDoor application-readiness copilot](https://github.com/Ismailea4/eigenbrains-realdoor-agent/commits/main/?author=coderyaz856):** seven commits on `main` covering deterministic housing-rule evaluation, transparent financial-readiness risk metrics, synthetic end-to-end pipeline exports, aggregate journey APIs, regression tests, documentation, and deployed endpoint compatibility.
 - **[AI-scientist retrieval and orchestration](https://github.com/Abderrahmane-dotcom/mit_hackathon_ai_scientist_sujet/commit/e8717bfe059e881e764260cc470fb6a9e37fcb4c):** built the retrieval path across query classification, source profiles, Tavily integration, catalog validation, orchestration, Markdown export, server integration, and smoke tests.
