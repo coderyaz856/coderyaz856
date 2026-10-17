@@ -7,7 +7,7 @@ Building reliable ML systems, evaluation pipelines, distributed applications, an
 [![ORCID](https://img.shields.io/badge/ORCID-0009--0008--5499--8589-A6CE39?logo=orcid&logoColor=white)](https://orcid.org/0009-0008-5499-8589)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-El_Yazid_Tebbaa-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/el-yazid-tebbaa-71a27434a/)
 
-<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=900&height=48&lines=Applied+mathematics+%C2%B7+efficient+software+%C2%B7+machine+learning;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.05+dB+recovered+from+a+noisy+input" alt="Applied mathematics, efficient software, machine learning" />
+<img src="https://readme-typing-svg.demolab.com/?font=Fira+Code&weight=500&size=20&duration=2600&pause=700&color=58A6FF&center=true&vCenter=true&width=900&height=48&lines=GPU+engineering+%C2%B7+~13B+parameters+%C2%B7+one+Tesla+T4;Hack%2DNation+%C2%B7+58+commits+%C2%B7+agentic+scientific+discovery;209%2C924+job+postings+matched+with+explainable+ranking;%2B4.07+pp+recall+at+flat+accuracy+on+70%2C692+records;%2B16.05+dB+recovered+from+a+noisy+input" alt="GPU engineering: roughly 13B parameters on one Tesla T4; Hack-Nation: 58 commits to agentic scientific discovery" />
 
 ![Python](https://img.shields.io/badge/python-%233670A0.svg?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
@@ -29,6 +29,29 @@ I work on the evaluation side of machine learning: whether a metric measures wha
 to, whether a result survives a change of preprocessing, and what a model costs to run on
 hardware you actually have. Each project below is built around an experiment rather than a
 demo, and reports the number that settles it.
+
+
+## Featured collaboration: Noesis / EigenBrains
+
+For the [Hack-Nation 7th Global AI Hackathon](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains), I contributed [58 commits](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains/commits?author=coderyaz856) to an autonomous scientific-discovery laboratory. My work covered three connected layers:
+
+- **Research systems:** a reproducible evidence runtime, append-only research ledger, typed Python/Rust/Julia SDKs, contract-checked RPC, checkpoint/resume, content-addressed bundles, byte-for-byte reproduction, and fail-closed corruption checks.
+- **Decision economics:** expected-information-gain experiment planning under compute budgets, redundancy-aware research portfolios, downside-risk analysis, and selective escalation from 6 to 12 to 24 seeds only while a preregistered verdict remained inconclusive.
+- **Applied mathematics:** dynamic evolutionary-search benchmarks, entropy telemetry, paired and stratified cluster bootstraps, AUROC and Brier analysis, Wilson intervals, exact McNemar tests, Hodges-Lehmann estimates, Wilcoxon tests with Holm correction, and CVaR.
+
+The recorded selective-escalation study cut compute by **35%** (efficiency ratio **1.54x**, 95% bootstrap CI **[1.28, 1.90]**) while agreeing with a 48-seed reference on 28/35 decisions, versus 29/35 for the full-size design. I also froze and executed a sealed cross-language study in which a promising development result (Delta AUROC **+0.1393**) disappeared on untouched landscapes (Delta AUROC **-0.0059**). I published the negative result, its limitations, the protocol hash, and the independently verifiable evidence bundle.
+
+[Acceleration study](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains/tree/main/discolab/results/escalation) | [Sealed result](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains/blob/main/docs/SEALED_ENTROPY_EARLY_WARNING_RESULT.md) | [Cross-language SDK](https://github.com/Ismailea4/Agentic-Scientific-Discovery-EigenBrains/tree/main/sdk)
+
+## Mantis work
+
+I contribute focused, independently tested fixes to [KellisLab's Mantis CLI](https://github.com/KellisLab/mantis-cli):
+
+- **[PR #12](https://github.com/KellisLab/mantis-cli/pull/12)** centralizes package-version loading and tests the MCP handshake version.
+- **[PR #19](https://github.com/KellisLab/mantis-cli/pull/19)** preserves the actual HTTP status when an API returns an HTML 5xx response.
+- **[PR #21](https://github.com/KellisLab/mantis-cli/pull/21)** converts `mantis select` API failures into one handled CLI error instead of an uncaught Node.js stack trace.
+
+I also built a Theory-to-Machine vertical in Mantis: a bounded C++20 floating-point experiment with scoped reassociation profiles, seeded interleaved timing, CPU-affinity and host-load records, retained raw samples, disassembly checks, and a UI panel generated from the exact notebook result.
 
 ---
 
